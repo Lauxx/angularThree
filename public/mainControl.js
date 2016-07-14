@@ -2,7 +2,6 @@ angular.module('todoApp').controller('mainControl', function($scope, todoServ){
 
 
 	$scope.cathat = false;
-
 	$scope.listofthings = todoServ.list;
 
 

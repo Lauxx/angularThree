@@ -9,7 +9,7 @@
 	</head>
 	<body ng-controller="mainControl">
 	
-	<h1 ng-show="cathat">Hello {{displayName}}</h1>
+	
 
 	<div ng-hide="cathat" class="login container">
 		<form ng-submit="fakeLogin(username, password)">
@@ -19,9 +19,17 @@
 		</form>
 	</div>
 
-	<div ng-show="cathat" ng-repeat="item in listofthings" class="container">
-		<li>{{item}}</li>
+
+	<div ng-show="cathat" class="container">
+		<h1>Hello {{displayName}}</h1>
+		<button class="btn btn-primary" ng-click="sorter='+' ">Ascending</button>
+		<button class="btn btn-primary" ng-click="sorter='-' ">Descending</button>
+		<h3> Filter by: <input type="text" ng-model="filterer"></h3>
+		<div ng-repeat="item in listofthings | orderBy: sorter | filter: filterer" class="container">
+			<li>{{item}}</li>
+		</div>
 	</div>
+	
 		
 	<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
